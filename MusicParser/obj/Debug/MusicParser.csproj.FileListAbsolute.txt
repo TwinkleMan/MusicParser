@@ -1,0 +1,10 @@
+C:\Users\Artem\RiderProjects\MusicParser\MusicParser\bin\Debug\MusicParser.exe.config
+C:\Users\Artem\RiderProjects\MusicParser\MusicParser\bin\Debug\MusicParser.exe
+C:\Users\Artem\RiderProjects\MusicParser\MusicParser\bin\Debug\MusicParser.pdb
+C:\Users\Artem\RiderProjects\MusicParser\MusicParser\obj\Debug\MusicParser.csprojAssemblyReference.cache
+C:\Users\Artem\RiderProjects\MusicParser\MusicParser\obj\Debug\MusicParser.Properties.Resources.resources
+C:\Users\Artem\RiderProjects\MusicParser\MusicParser\obj\Debug\MusicParser.csproj.GenerateResource.cache
+C:\Users\Artem\RiderProjects\MusicParser\MusicParser\obj\Debug\MusicParser.csproj.CoreCompileInputs.cache
+C:\Users\Artem\RiderProjects\MusicParser\MusicParser\obj\Debug\MusicParser.exe
+C:\Users\Artem\RiderProjects\MusicParser\MusicParser\obj\Debug\MusicParser.pdb
+C:\Users\Artem\RiderProjects\MusicParser\MusicParser\obj\Debug\MusicParser.Form1.resources
