@@ -4,18 +4,10 @@
     <projectFile>MusicParser/MusicParser.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a09b1b92-098c-4d1f-a1ad-4b4258256c13" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.MusicParser/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MusicParser/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MusicParser/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="a09b1b92-098c-4d1f-a1ad-4b4258256c13" name="Default Changelist" comment="переработано получение songlist, из-за чего изменен GetSong, GetSongList и вывод списка песен в файл">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MusicParser/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MusicParser/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicParser/MusicParser.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MusicParser/MusicParser.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicParser/YandexEngine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MusicParser/YandexEngine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicParser/bank.txt" beforeDir="false" afterPath="$PROJECT_DIR$/MusicParser/bank.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicParser/bin/Debug/MusicParser.exe" beforeDir="false" afterPath="$PROJECT_DIR$/MusicParser/bin/Debug/MusicParser.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicParser/bin/Debug/MusicParser.exe.config" beforeDir="false" afterPath="$PROJECT_DIR$/MusicParser/bin/Debug/MusicParser.exe.config" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicParser/bin/Debug/MusicParser.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/MusicParser/bin/Debug/MusicParser.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicParser/obj/Debug/MusicParser.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/MusicParser/obj/Debug/MusicParser.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MusicParser/obj/Debug/MusicParser.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/MusicParser/obj/Debug/MusicParser.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicParser/obj/Debug/MusicParser.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/MusicParser/obj/Debug/MusicParser.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicParser/obj/Debug/MusicParser.exe" beforeDir="false" afterPath="$PROJECT_DIR$/MusicParser/obj/Debug/MusicParser.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MusicParser/obj/Debug/MusicParser.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/MusicParser/obj/Debug/MusicParser.pdb" afterDir="false" />
@@ -26,6 +18,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -141,8 +138,17 @@
       <workItem from="1608338910388" duration="2553000" />
       <workItem from="1608341483601" duration="3950000" />
       <workItem from="1608414909464" duration="791000" />
-      <workItem from="1608576409604" duration="11630000" />
+      <workItem from="1608576409604" duration="11943000" />
+      <workItem from="1608598425997" duration="2325000" />
     </task>
+    <task id="LOCAL-00001" summary="переработано получение songlist, из-за чего изменен GetSong, GetSongList и вывод списка песен в файл">
+      <created>1608598285823</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608598285823</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,7 +156,20 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="переработано получение songlist, из-за чего изменен GetSong, GetSongList и вывод списка песен в файл" />
+    <option name="LAST_COMMIT_MESSAGE" value="переработано получение songlist, из-за чего изменен GetSong, GetSongList и вывод списка песен в файл" />
   </component>
 </project>

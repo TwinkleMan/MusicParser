@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
@@ -18,6 +19,7 @@ namespace MusicParser
         private string urlUser { get; set; }    //user's name from site
         private string songlist { get; set; }   //user's songlist
         private int numberOfSongs { get; set; }     //number of user's songs
+        private Dictionary<int, string> database = new Dictionary<int, string>();
 
         public void GetUser(string Username) 
         { 
@@ -67,7 +69,7 @@ namespace MusicParser
             numberOfSongs = counter;
         }
 
-        private string GetSong()
+        private string GetSong(int i)
         {
             string id,album;
 
@@ -97,12 +99,14 @@ namespace MusicParser
             id = songlist.Substring(0, songlist.IndexOf("\""));
             
             //getting song's album
-            int end = songlist.IndexOf("albumId");
-            Debug.WriteLine("Current index of albumID = " + end); //DEBUG
-            Debug.WriteLine("Current songlist length = " + songlist.Length);
-            songlist = songlist.Substring(end + 10);
+            songlist = songlist.Substring(songlist.IndexOf("albumId") + 10);
             album = songlist.Substring(0, songlist.IndexOf("\""));
 
+            songlist = songlist.Substring(songlist.IndexOf("}") + 1);
+            Debug.WriteLine(id + " - " + album);
+
+            database.Add(i,(id + " - " + album));
+            
             return (id + " - " + album);
         }
 
@@ -115,16 +119,17 @@ namespace MusicParser
             {
                 try
                 {
-                    Debug.WriteLine("Current i = " + i);
-                    GetSong();
-                    if (i == 799) dockOut.WriteLine(GetSong());
+                    Debug.WriteLine("Current i = " + i); 
+                    //dockOut.WriteLine(GetSong(i));
+                    GetSong(i);
                 }
                 catch (Exception exception)
                 {
                     dockOut.WriteLine("Error!!!");
                     dockOut.WriteLine(exception.Message);
                     Debug.WriteLine($"error = {exception.Message}");
-                    Debug.WriteLine($"Трассировка стека: {exception.StackTrace}");
+                    Debug.WriteLine($"{exception.TargetSite}");
+                    //Debug.WriteLine($"Трассировка стека: {exception.StackTrace}");
                     MessageBox.Show("ERROR!", "Message", MessageBoxButtons.OK);
                 }
             }
