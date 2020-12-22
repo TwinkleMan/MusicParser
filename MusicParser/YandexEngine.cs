@@ -3,14 +3,21 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Windows.Forms;
+//.jsx modules, trying to get proper list of songs
+using System.Web;
+using System.Linq;
+using JavaScriptEngineSwitcher.Core.Resources;
+using React;
 
 namespace MusicParser
 {
     public class YandexEngine
     {
         private string url = "https://music.yandex.ru/users/";  //template for creating a link
+        private string songUrl = "https://music.yandex.ru/album/";   //temp: https://music.yandex.ru/album/'albumID'/track/'trackID'
         private string urlUser { get; set; }    //user's name from site
         private string songlist { get; set; }   //user's songlist
+        private int numberOfSongs { get; set; }     //number of user's songs
 
         public void GetUser(string Username) 
         { 
@@ -23,22 +30,48 @@ namespace MusicParser
 
         public void GetSongList()
         {
+            
             WebClient client = new WebClient(); //creating a web client
+            int start,end;  //positions for string cutting
+            int counter = 0;
+            string temp;
 
-            /*Stream data;
-            data = client.OpenRead(url);
+            Stream data;
+            data = client.OpenRead(url);    //открываем файл по ссылке
             StreamReader reader = new StreamReader(data);
-            songlist = reader.ReadToEnd();
+            songlist = reader.ReadToEnd();  //считываем весь файл
             data.Close();
-            reader.Close();*/ //old page download, saving html as a string
+            reader.Close();
+            
+            //getting list of songs
+            start = songlist.IndexOf("contestTracksIds");
+            songlist = songlist.Substring(start + 18);
+            end = songlist.IndexOf("]");
+            songlist = songlist.Substring(0, end);
+
+            temp = songlist;
+            while (true)
+            {
+                start = temp.IndexOf("id");
+                if (start != -1)
+                {
+                    counter++;
+                    temp = temp.Substring(start + 4);
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            numberOfSongs = counter;
         }
 
         private string GetSong()
         {
-            string name,artist;
+            string id,album;
 
-            int start,end;
-            
+            /*
             //get song name
             start = songlist.IndexOf("div class=\"d-track__name\" title=");
             name = songlist.Substring(start + 33);
@@ -57,34 +90,46 @@ namespace MusicParser
             artist = artist.Substring(0, end);
 
             name = name + " " + artist;
+            */
+
+            //getting song's id
+            songlist = songlist.Substring(songlist.IndexOf("id") + 5);
+            id = songlist.Substring(0, songlist.IndexOf("\""));
             
-            return name;
+            //getting song's album
+            int end = songlist.IndexOf("albumId");
+            Debug.WriteLine("Current index of albumID = " + end); //DEBUG
+            Debug.WriteLine("Current songlist length = " + songlist.Length);
+            songlist = songlist.Substring(end + 10);
+            album = songlist.Substring(0, songlist.IndexOf("\""));
+
+            return (id + " - " + album);
         }
 
         public void WriteSongList()
         {
-            //придумать, когда останавливать поиск треков
             string path = @"C:\Users\Artem\RiderProjects\MusicParser\MusicParser\bank.txt";
             
-            StreamWriter dockOut = new StreamWriter(path,true);
-            for (int i = 0; i < 900; i++)
+            StreamWriter dockOut = new StreamWriter(path,false);
+            for (int i = 0; i < numberOfSongs; i++)
             {
                 try
                 {
-                    dockOut.WriteLine(GetSong());
-                    if (i == 133) Debug.WriteLine("yay");
+                    Debug.WriteLine("Current i = " + i);
+                    GetSong();
+                    if (i == 799) dockOut.WriteLine(GetSong());
                 }
-                catch
+                catch (Exception exception)
                 {
                     dockOut.WriteLine("Error!!!");
-                    Debug.WriteLine("error!!");
+                    dockOut.WriteLine(exception.Message);
+                    Debug.WriteLine($"error = {exception.Message}");
+                    Debug.WriteLine($"Трассировка стека: {exception.StackTrace}");
                     MessageBox.Show("ERROR!", "Message", MessageBoxButtons.OK);
                 }
             }
-
-            MessageBox.Show("All done", "Message", MessageBoxButtons.OK);
             
-            Debug.WriteLine(GetSong());
+            MessageBox.Show("All done", "Message", MessageBoxButtons.OK);
         }
         
     }

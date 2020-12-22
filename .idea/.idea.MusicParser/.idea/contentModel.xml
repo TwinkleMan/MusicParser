@@ -12,6 +12,7 @@
         <e p="Form1.resx" t="Include" />
         <e p="MusicParser.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
@@ -20,10 +21,15 @@
           <e p="Settings.Designer.cs" t="Include" />
           <e p="Settings.settings" t="Include" />
         </e>
+        <e p="x64" t="Include" />
+        <e p="x86" t="Include" />
         <e p="YandexEngine.cs" t="Include" />
       </e>
       <e p="MusicParser.sln" t="IncludeFlat" />
-      <e p="packages" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive">
+        <e p="JavaScriptEngineSwitcher.ChakraCore.Native.win-x64.3.9.1\runtimes\win-x64\native\ChakraCore.dll" t="Include" />
+        <e p="JavaScriptEngineSwitcher.ChakraCore.Native.win-x86.3.9.1\runtimes\win-x86\native\ChakraCore.dll" t="Include" />
+      </e>
     </e>
   </component>
 </project>
